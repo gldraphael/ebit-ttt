@@ -11,14 +11,9 @@ type tile struct {
 	Image *ebiten.Image
 }
 
-func NewTile() *tile {
-	return &tile{}
-}
-
-func (t *tile) Draw(screen *ebiten.Image) {
+func (t *tile) Draw(sc *ebiten.Image) {
 	// Implement drawing logic here
-}
-
-func (t *tile) Update() {
-	// Implement update logic here
+	op := &ebiten.DrawImageOptions{}
+	op.GeoM.Translate(t.X, t.Y)
+	sc.DrawImage(t.Image, op)
 }
