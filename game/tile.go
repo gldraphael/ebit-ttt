@@ -1,24 +1,24 @@
-package main
+package game
 
 import (
 	"github.com/hajimehoshi/ebiten/v2"
 )
 
-type Tile struct {
+type tile struct {
 	// Define tile properties here
 	X     float64
 	Y     float64
 	Image *ebiten.Image
 }
 
-func NewTile() *Tile {
-	return &Tile{}
+func NewTile() *tile {
+	return &tile{}
 }
 
-func (t *Tile) Draw(screen *ebiten.Image) {
+func (t *tile) Draw(screen *ebiten.Image) {
 	// Implement drawing logic here
 }
 
-func (t *Tile) Update() {
+func (t *tile) Update() {
 	// Implement update logic here
 }
