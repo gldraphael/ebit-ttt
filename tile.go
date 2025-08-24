@@ -8,7 +8,7 @@ type Tile struct {
 	// Define tile properties here
 	X     float64
 	Y     float64
-	image *ebiten.Image
+	Image *ebiten.Image
 }
 
 func NewTile() *Tile {
