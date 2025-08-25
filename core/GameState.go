@@ -25,14 +25,14 @@ func NewGameState() *GameState {
 /*
  * Returns the current player
  */
-func (gs GameState) CurrentPlayer() TileValue {
+func (gs *GameState) CurrentPlayer() TileValue {
 	return gs.currentPlayer
 }
 
 /*
  * Returns the tile at the specified coordinate
  */
-func (gs GameState) Tile(x int, y int) (TileValue, error) {
+func (gs *GameState) Tile(x int, y int) (TileValue, error) {
 	if err := validateCoords(x, y); err != nil {
 		return Tile_Empty, err
 	}
@@ -42,7 +42,7 @@ func (gs GameState) Tile(x int, y int) (TileValue, error) {
 /*
  * Make a move
  */
-func (gs GameState) MakeMove(x int, y int) error {
+func (gs *GameState) MakeMove(x int, y int) error {
 
 	if err := validateCoords(x, y); err != nil {
 		return err
@@ -65,7 +65,7 @@ func validateCoords(x int, y int) error {
 	return nil
 }
 
-func (gs GameState) nextPlayer() {
+func (gs *GameState) nextPlayer() {
 	if gs.currentPlayer == Tile_X {
 		gs.currentPlayer = Tile_Y
 	} else {
