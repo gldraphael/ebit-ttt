@@ -19,13 +19,22 @@ func (t *tile) Draw(screen *ebiten.Image, tile core.TileValue, x int, y int) {
 }
 
 func getImageFor(tile core.TileValue) *ebiten.Image {
+	// TODO: do not generate a new image on the fly
+	//       instead, cache 3 tile images and reuse them
 	img := ebiten.NewImage(TILE_SIZE, TILE_SIZE)
-	// TODO: draw tiles for X, Y, and EMPTY
-	img.Fill(color.RGBA{
-		R: 255,
-		G: 0,
-		B: 0,
-		A: 0,
-	})
+
+	// TODO: the tiles can surely look much better than these...
+	switch tile {
+
+	case core.Tile_X:
+		img.Fill(color.RGBA{R: 255, G: 0, B: 0, A: 0})
+
+	case core.Tile_Y:
+		img.Fill(color.RGBA{R: 0, G: 255, B: 0, A: 0})
+
+	default:
+		img.Fill(color.RGBA{R: 0, G: 0, B: 255, A: 0})
+	}
+
 	return img
 }

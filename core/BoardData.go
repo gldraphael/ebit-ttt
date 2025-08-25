@@ -4,8 +4,8 @@ type BoardData struct {
 	tiles [3][3]TileValue
 }
 
-func newBoardData() BoardData {
-	bd := BoardData{}
+func newBoardData() *BoardData {
+	bd := &BoardData{}
 
 	for i := range 3 {
 		for j := range 3 {

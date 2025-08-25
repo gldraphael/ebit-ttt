@@ -9,17 +9,17 @@ import (
  * The game state
  */
 type GameState struct {
-	board         BoardData
+	board         *BoardData
 	currentPlayer TileValue
 }
 
-func NewGameState() GameState {
+func NewGameState() *GameState {
 	gs := GameState{}
 
 	gs.board = newBoardData()
 	gs.currentPlayer = Tile_X
 
-	return gs
+	return &gs
 }
 
 /*
